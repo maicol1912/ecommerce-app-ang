@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 //modulos
-import {HttpClientModule} from "@angular/common/http"
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http"
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from "ngx-toastr"
@@ -15,6 +15,8 @@ import { SigInComponent } from './components/sig-in/sig-in.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { AddTokenInterceptor } from './utils/interceptors/add-token.interceptor';
+import { SpinnerInterceptor } from './utils/interceptors/spinner.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,10 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
       timeOut: 2000,
     })
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:AddTokenInterceptor,multi:true},
+    {provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

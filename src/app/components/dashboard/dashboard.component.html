@@ -4,14 +4,16 @@
   <table class="table">
     <thead>
       <tr>
+        <th scope="col">Id</th>
         <th scope="col">Nombre</th>
         <th scope="col">Descripcion</th>
       </tr>
     </thead>
     <tbody>
-      <tr >
-        <td>1</td>
-        <td>2</td>
+      <tr *ngFor="let product of products">
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.description}}</td>
       </tr>
 
     </tbody>
