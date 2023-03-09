@@ -10,13 +10,25 @@ import { Product } from '../interfaces/product.interface';
 export class ProductService {
   private myAppUrl: string;
   private getProductUrl: string;
+  private deleteProductUrl:string;
+  private addProductUrl: string;
   constructor(private http: HttpClient) {
     this.myAppUrl = enviroment.endpoint
     this.getProductUrl = 'api/products/'
+    this.deleteProductUrl = 'api/products/delete'
+    this.addProductUrl = 'api/products/add'
   }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.myAppUrl}${this.getProductUrl}`)
   }
-
+  deleteProducts(){
+    return this.http.delete(`${this.myAppUrl}${this.deleteProductUrl}`)
+  }
+  deleteProduct(id:number) {
+    return this.http.delete(`${this.myAppUrl}${this.deleteProductUrl}/${id}`)
+  }
+  AddProduct(body:any) {
+    return this.http.post(`${this.myAppUrl}${this.addProductUrl}`,body)
+  }
 }

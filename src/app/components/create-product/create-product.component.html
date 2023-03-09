@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <div class="body">
+    <img class="logo" src="/assets/img/add-user.png" alt="img login">
+    <h1>Create User</h1>
+    <form [formGroup]="new_product_fb" (submit)="createProduct(new_product_fb.value)">
+      <div class="form-floating mb-3 mt-3">
+        <mat-form-field appearance="fill" id="input1">
+          <mat-label>Name</mat-label>
+          <input type="text" matInput placeholder="Name" formControlName="name">
+        </mat-form-field>
+      </div>
+      <div class="form-floating mb-3">
+        <mat-form-field appearance="fill" id="input1">
+          <mat-label>Description</mat-label>
+          <input type="text" matInput placeholder="Description" formControlName="description">
+        </mat-form-field>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary btn-lg">Crear producto</button>
+      </div>
+    </form>
+  </div>
+</div>
+

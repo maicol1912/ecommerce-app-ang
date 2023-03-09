@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 //modulos
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http"
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from "ngx-toastr"
-
+import { MatInputModule } from '@angular/material/input';
 //componentes
 import { LoginComponent } from './components/login/login.component';
 import { SigInComponent } from './components/sig-in/sig-in.component';
@@ -17,6 +17,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { AddTokenInterceptor } from './utils/interceptors/add-token.interceptor';
 import { SpinnerInterceptor } from './utils/interceptors/spinner.interceptor';
+import { CreateProductComponent } from './components/create-product/create-product.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { SpinnerInterceptor } from './utils/interceptors/spinner.interceptor';
     DashboardComponent,
     NavbarComponent,
     SpinnerComponent,
+    CreateProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,9 @@ import { SpinnerInterceptor } from './utils/interceptors/spinner.interceptor';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     ToastrModule.forRoot({
       timeOut: 2000,
     })
