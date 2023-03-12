@@ -9,13 +9,13 @@ import {
 import { Observable, catchError, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { MessageService } from 'src/app/services/message.service';
-
+import { CookieService } from 'ngx-cookie-service';
 @Injectable()
 export class AddTokenInterceptor implements HttpInterceptor {
-  constructor(private router: Router, private error_service: MessageService) {}
+  constructor(private router: Router, private error_service: MessageService,private cookieService:CookieService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token = localStorage.getItem('token')
+    const token = this.cookieService.get('token')
     if(token){
       request = request.clone({ setHeaders: { Authorization :`Bearer ${token}`}})
     }

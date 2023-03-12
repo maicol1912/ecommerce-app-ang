@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { ToastrService } from 'ngx-toastr';
 import { MessageService } from 'src/app/services/message.service';
 import { UserService } from 'src/app/services/user.service';
@@ -12,7 +13,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent {
   constructor(private fb:FormBuilder,private user_service:UserService,
-              private router:Router,private message_service:MessageService){}
+              private router:Router,private message_service:MessageService,
+              private cookieService:CookieService){}
 
   login_form = this.fb.group({
     username:this.fb.control('',[Validators.required,Validators.minLength(5)]),
@@ -26,9 +28,8 @@ export class LoginComponent {
     }
     this.user_service.login(body).subscribe({
       next:(data)=>{
-        const token = data.token
-        console.log(token)
-        localStorage.setItem('token', token)
+        this.cookieService.set('token',data.token,4,'/')
+
         this.message_service.specifiedSuccess("Logueo exitoso","Exitoso")
         this.router.navigate(['/dashboard'])
       },error:(e:HttpErrorResponse)=>{

@@ -19,7 +19,7 @@ import { AddTokenInterceptor } from './utils/interceptors/add-token.interceptor'
 import { SpinnerInterceptor } from './utils/interceptors/spinner.interceptor';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +45,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AddTokenInterceptor,multi:true},
-    {provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true }
+    {provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
