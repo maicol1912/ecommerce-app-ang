@@ -1,3 +1,4 @@
+import { ROOT_REDUCERS } from './state/app.state';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +21,8 @@ import { SpinnerInterceptor } from './utils/interceptors/spinner.interceptor';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CookieService } from 'ngx-cookie-service';
+import {StoreModule} from "@ngrx/store"
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,9 +42,9 @@ import { CookieService } from 'ngx-cookie-service';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    ToastrModule.forRoot({
-      timeOut: 2000,
-    })
+    ToastrModule.forRoot({timeOut: 2000}),
+    StoreDevtoolsModule.instrument({ name:'TEST'}),
+    StoreModule.forRoot(ROOT_REDUCERS)
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AddTokenInterceptor,multi:true},

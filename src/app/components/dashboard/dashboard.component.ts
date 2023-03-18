@@ -1,9 +1,14 @@
+import { loadedProducts } from './../../state/actions/product.actions';
+import { productInterface } from './../../state/interfaceState/product.interface';
+import { selectListProducts } from './../../state/selectors/product.selector';
+import { Observable } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/interfaces/product.interface';
+import {Store} from "@ngrx/store"
 import { MessageService } from 'src/app/services/message.service';
 import { ProductService } from 'src/app/services/product.service';
+import { AppState } from 'src/app/state/app.state';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,19 +16,23 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit{
-  products:Product[] = []
-  constructor(private api_products: ProductService,private _message_service:MessageService,private router:Router){}
+  products$:Observable<any> = new Observable();
+
+  constructor(private api_products: ProductService,private _message_service:MessageService,
+              private router:Router,private store:Store<AppState>){}
   ngOnInit(): void {
+    this.products$ = this.store.select(selectListProducts)
     this.getProducts()
   }
+
   getProducts(){
-    this.api_products.getProducts().subscribe({
-      next:((data:any)=>{
-        this.products = data.body;
-      }), error: (err: HttpErrorResponse)=>{
-        this._message_service.msjError(err.error)
-      }
-  })
+    this.api_products.getProducts().subscribe(
+      ((response:any)=>{
+        this.store.dispatch(loadedProducts(
+          {products:response.body}
+        ))
+      })
+  )
   }
   deleteProducts(){
     if(!confirm("Estas seguro que deseas eliminar los usuarios?")){

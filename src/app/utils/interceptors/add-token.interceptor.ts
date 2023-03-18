@@ -23,7 +23,6 @@ export class AddTokenInterceptor implements HttpInterceptor {
       catchError((error:HttpErrorResponse)=>{
         if(error){
           this.router.navigate(['/login'])
-          this.error_service.msjError(error)
         }
         return throwError(()=>error)
       })
