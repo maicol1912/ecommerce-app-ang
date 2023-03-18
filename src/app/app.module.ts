@@ -23,6 +23,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CookieService } from 'ngx-cookie-service';
 import {StoreModule} from "@ngrx/store"
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './state/efects/product.effects';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,8 +45,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     MatFormFieldModule,
     MatInputModule,
     ToastrModule.forRoot({timeOut: 2000}),
+    StoreModule.forRoot(ROOT_REDUCERS),
     StoreDevtoolsModule.instrument({ name:'TEST'}),
-    StoreModule.forRoot(ROOT_REDUCERS)
+    EffectsModule.forRoot([ProductEffects])
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AddTokenInterceptor,multi:true},

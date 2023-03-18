@@ -22,13 +22,10 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.myAppUrl}${this.getProductUrl}`)
   }
-  deleteProducts(){
-    return this.http.delete(`${this.myAppUrl}${this.deleteProductUrl}`)
+  addProduct(body:any):Observable<Product>{
+    return this.http.post<Product>(`${this.myAppUrl}${this.addProductUrl}`,body)
   }
-  deleteProduct(id:number) {
+  deleteProduct(id:number):Observable<unknown>{
     return this.http.delete(`${this.myAppUrl}${this.deleteProductUrl}/${id}`)
-  }
-  AddProduct(body:any) {
-    return this.http.post(`${this.myAppUrl}${this.addProductUrl}`,body)
   }
 }
