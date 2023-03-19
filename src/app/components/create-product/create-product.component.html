@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="body">
     <img class="logo" src="/assets/img/add-product.png" alt="img login">
-    <h1>Create Product</h1>
+    <h1 class="title">Create Product</h1>
     <form [formGroup]="new_product_fb" (submit)="onAddProduct(new_product_fb.value)">
       <div class="form-floating mb-3 mt-3">
         <mat-form-field appearance="fill" id="input1">
@@ -28,8 +28,15 @@
         </mat-form-field>
       </div>
 
+      <mat-form-field appearance="fill" id="input1" > 
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="categoryId">
+          <mat-option *ngFor="let category of categories$ | async" value="{{category.id}}">{{category.id}}.{{category.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
       <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-primary btn-lg">Crear producto</button>
+        <button type="submit" class="btn btn-primary btn-lg">Crear Category</button>
       </div>
     </form>
   </div>

@@ -25,6 +25,9 @@ import {StoreModule} from "@ngrx/store"
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './state/effects/product.effects';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { CategoryEffects } from './state/effects/category.effects';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,11 +46,13 @@ import { ProductEffects } from './state/effects/product.effects';
     BrowserAnimationsModule,
     FormsModule,
     MatFormFieldModule,
+    MatOptionModule,
+    MatSelectModule,
     MatInputModule,
     ToastrModule.forRoot({timeOut: 2000}),
     StoreModule.forRoot(ROOT_REDUCERS),
     StoreDevtoolsModule.instrument({ name:'TEST'}),
-    EffectsModule.forRoot([ProductEffects])
+    EffectsModule.forRoot([ProductEffects,CategoryEffects])
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AddTokenInterceptor,multi:true},
