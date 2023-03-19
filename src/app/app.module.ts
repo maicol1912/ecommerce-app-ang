@@ -24,7 +24,7 @@ import { CookieService } from 'ngx-cookie-service';
 import {StoreModule} from "@ngrx/store"
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-import { ProductEffects } from './state/efects/product.effects';
+import { ProductEffects } from './state/effects/product.effects';
 @NgModule({
   declarations: [
     AppComponent,

@@ -30,7 +30,6 @@ export class ProductEffects {
                 this.productService.getProducts().pipe(
                     map((response: any) => loadProductsSuccess({ products: response.body })),
                     catchError((error: any) => {
-                        const message = 'Ha ocurrido un error al cargar los productos';
                         return of(productError(error))
                     })
                 )
@@ -45,7 +44,6 @@ export class ProductEffects {
                 this.productService.addProduct(product).pipe(
                     map((product) => addProductSuccess({ product })),
                     catchError((error: any) => {
-                        const message = 'Ha ocurrido un error al cargar los productos';
                         return of(productError(error))
                     }),
                     tap(() => {

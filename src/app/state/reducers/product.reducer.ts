@@ -5,12 +5,23 @@ export const initialState: ProductState = { loading: false, products: [] }
 
 export const productsReducer = createReducer(
     initialState,
+    on(loadProducts, (state) => {
+        return { ...state, loading: true }
+    }),
     on(loadProductsSuccess, (state, { products }) => {
         return { ...state, loading: false, products: products }
     }),
-    on(addProductSuccess, (state, { product }) => {
+    on(addProduct, (state) => {
         return {
             ...state,
+            loading:true
+        }
+    }),
+    on(addProductSuccess, (state, { product }) => {
+        console.log(product)
+        return {
+            ...state,
+            loading:false,
             products: [...state.products, product]
         }
     }),

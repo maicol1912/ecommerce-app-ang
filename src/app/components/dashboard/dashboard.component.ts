@@ -1,5 +1,5 @@
 import { loadProducts, addProduct, deleteProduct } from './../../state/actions/product.actions';
-import { productInterface } from './../../state/interfaceState/product.interface';
+import { ProductInterface } from 'src/app/interfaces/product.interface';
 import { selectAllProducts, selectProductById } from './../../state/selectors/product.selector';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +12,7 @@ import { AppState } from 'src/app/state/app.state';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit{
-  products$:Observable<readonly productInterface[]> = new Observable();
+  products$:Observable<readonly ProductInterface[]> = new Observable();
 
   constructor(private store:Store<AppState>){
     this.products$ = store.select(selectAllProducts)
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit{
     this.store.dispatch(deleteProduct({productId}));
   }
 
-  getProductById(productId:number):Observable<productInterface | undefined>{
+  getProductById(productId:number):Observable<ProductInterface | undefined>{
     return this.store.select(selectProductById(productId));
   }
 }

@@ -1,4 +1,4 @@
-import { productInterface } from './../interfaceState/product.interface';
+import { ProductInterface } from "src/app/interfaces/product.interface"; 
 import {createAction,props} from "@ngrx/store"
 export const loadProducts = createAction(
     '[product] loading products'
@@ -6,27 +6,27 @@ export const loadProducts = createAction(
 
 export const loadProductsSuccess = createAction(
     '[product] loaded products successfully',
-    props<{products:productInterface[]}>()
+    props<{products:ProductInterface[]}>()
 )
 
 export const addProduct = createAction(
-    '[Product] add Task',
-    props<{product:productInterface}>()
+    '[Product] add Product',
+    props<{product:ProductInterface}>()
 )
 
 export const addProductSuccess = createAction(
-    '[Product] add Task success',
-    props<{product:productInterface}>()
+    '[Product] add Product success',
+    props<{product:ProductInterface}>()
 )
 
 export const deleteProduct = createAction(
-    '[Product] delete Task',
+    '[Product] delete Product',
     props<{productId:number}>()
 )
 
 export const deleteProductSuccess = createAction(
-    '[Product] delete Task success',
+    '[Product] delete Product success',
     props<{productId:number}>()
 )
 
-export const productError = createAction('[Product API] Error', props<Error>());
+export const productError = createAction('[Product] Error', props<Error>());

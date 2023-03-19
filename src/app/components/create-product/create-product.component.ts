@@ -1,6 +1,6 @@
+import { ProductInterface } from './../../interfaces/product.interface';
 import { addProduct } from './../../state/actions/product.actions';
 import { Store } from '@ngrx/store';
-import { productInterface } from './../../state/interfaceState/product.interface';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
@@ -13,8 +13,11 @@ export class CreateProductComponent {
   constructor(private fb:FormBuilder,private store:Store){}
 
   new_product_fb = this.fb.group({
+    reference: this.fb.control('',[Validators.required]),
     name: this.fb.control('',[Validators.required]),
-    description:this.fb.control('',[Validators.required])
+    description: this.fb.control('',[Validators.required]),
+    value:this.fb.control(null,[Validators.required]),
+    categoryId: this.fb.control(null,[Validators.required]),
   })
 
   onAddProduct(product:any){

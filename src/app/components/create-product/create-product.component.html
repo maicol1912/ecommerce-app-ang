@@ -5,14 +5,26 @@
     <form [formGroup]="new_product_fb" (submit)="onAddProduct(new_product_fb.value)">
       <div class="form-floating mb-3 mt-3">
         <mat-form-field appearance="fill" id="input1">
+          <mat-label>Reference</mat-label>
+          <input type="text" matInput placeholder="Reference" formControlName="reference">
+        </mat-form-field>
+      </div>
+      <div class="form-floating mb-3 mt-3">
+        <mat-form-field appearance="fill" id="input1">
           <mat-label>Name</mat-label>
           <input type="text" matInput placeholder="Name" formControlName="name">
         </mat-form-field>
       </div>
-      <div class="form-floating mb-3">
+      <div class="form-floating mb-3 mt-3">
         <mat-form-field appearance="fill" id="input1">
           <mat-label>Description</mat-label>
           <input type="text" matInput placeholder="Description" formControlName="description">
+        </mat-form-field>
+      </div>
+      <div class="form-floating mb-3">
+        <mat-form-field appearance="fill" id="input1">
+          <mat-label>Value</mat-label>
+          <input type="number" matInput placeholder="Value" formControlName="value">
         </mat-form-field>
       </div>
 
