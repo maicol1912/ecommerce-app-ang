@@ -1,6 +1,6 @@
-import { loadProducts, addProduct, deleteProduct } from './../../state/actions/product.actions';
+import { loadProducts, addProduct, deleteProduct } from '../../state/actions/product.actions';
 import { ProductInterface } from 'src/app/interfaces/product.interface';
-import { selectAllProducts, selectProductById } from './../../state/selectors/product.selector';
+import { selectAllProducts, selectProductById } from '../../state/selectors/product.selector';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import {Store} from "@ngrx/store"
@@ -8,10 +8,10 @@ import { AppState } from 'src/app/state/app.state';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  templateUrl: './dashboard-product.component.html',
+  styleUrls: ['./dashboard-product.component.scss']
 })
-export class DashboardComponent implements OnInit{
+export class DashboardProductComponent implements OnInit{
   products$:Observable<readonly ProductInterface[]> = new Observable();
 
   constructor(private store:Store<AppState>){

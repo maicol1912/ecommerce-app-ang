@@ -31,7 +31,7 @@ export class LoginComponent {
         this.cookieService.set('token',data.token,4,'/')
 
         this.message_service.specifiedSuccess("Logueo exitoso","Exitoso")
-        this.router.navigate(['/dashboard'])
+        this.router.navigate(['/dashboard-product'])
       },error:(e:HttpErrorResponse)=>{
         this.message_service.msjError(e)
       }})

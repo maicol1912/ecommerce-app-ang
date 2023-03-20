@@ -1,0 +1,68 @@
+.btn{
+    color: red;
+  }
+  .btn-yellow{
+    background-color: white;
+    border-color: white;
+    color:rgb(181, 181, 70);
+  }
+  .btn-trash{
+    color: rgb(232, 58, 58);
+  }
+  .nav-bar-manage{
+    background-color: rgb(63, 106, 224);
+    flex-direction:row;
+  }
+  .title{
+    color: white;
+    margin-left: 5%;
+  
+  }
+  .btn-danger{
+    position: relative;
+    z-index: 2;
+    color: white;
+    border-radius: 1px;
+    margin-left: 53%;
+  }
+  
+  .btn-success{
+    z-index: 2;
+    color: white;
+    border-radius: 1px;
+    margin-right: 2%;
+  }
+  .container1{
+    width: 100%; 
+    height: 100%;
+  }
+  
+  .item {
+    display: inline-block;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .item-left {
+    float: left;
+  }
+  
+  .item-right {
+    display: inline-block;
+  }
+  #navbar{
+    position: relative;
+    border: 4px solid;
+  }
+  .div-buttons{
+    width: 40%;
+    margin-left: 60%;
+  }
+  #delete{
+    width: 80%;
+  }
+  #button1{
+    margin-left: 52%;
+    width: 50%;
+  }
+  

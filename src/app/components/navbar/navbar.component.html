@@ -1,6 +1,21 @@
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Angular Node JWT</a>
-    <button class="btn btn-outline-success" (click)="logout()" type="button">LogOut</button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Ecommerce</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/dashboard-product">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard-category">Categories</a>
+      </li>
+      
+    </ul>
+    
+    <button class="btn btn-danger" id="button-leave" (click)="logout()" type="submit">Logout</button>
+  
   </div>
 </nav>
