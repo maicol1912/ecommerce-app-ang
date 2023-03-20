@@ -18,11 +18,9 @@ export const productsReducer = createReducer(
         }
     }),
     on(addProductSuccess, (state, { product }) => {
-        console.log(product)
         return {
             ...state,
             loading:false,
-            products: [...state.products, product]
         }
     }),
     on(deleteProductSuccess, (state, { productId }) => {

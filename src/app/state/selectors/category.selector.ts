@@ -8,13 +8,13 @@ export const selectAllCategories = createSelector(
     (state: CategoryState) => state.categories
 )
 
-export const selectProductById = (categoryId: number) =>
+export const selectCategoryById = (categoryId: number) =>
     createSelector(
         selectAllCategories,(categories)=>
         categories.find((category)=> category.id === categoryId)
     )
 
-export const selectLoadingProducts = createSelector(
+export const selectLoadingCategory = createSelector(
     selectCategoriesFeature,
     (state: CategoryState) => state.loading
 )

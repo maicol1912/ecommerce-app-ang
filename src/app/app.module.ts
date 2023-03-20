@@ -13,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 //componentes
 import { LoginComponent } from './components/login/login.component';
 import { SigInComponent } from './components/sig-in/sig-in.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardProductComponent } from './components/dashboard-product/dashboard-product.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { AddTokenInterceptor } from './utils/interceptors/add-token.interceptor';
@@ -28,15 +28,17 @@ import { ProductEffects } from './state/effects/product.effects';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { CategoryEffects } from './state/effects/category.effects';
+import { DashboardCategoryComponent } from './components/dashboard-category/dashboard-category.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SigInComponent,
-    DashboardComponent,
+    DashboardProductComponent,
     NavbarComponent,
     SpinnerComponent,
     CreateProductComponent,
+    DashboardCategoryComponent,
   ],
   imports: [
     BrowserModule,

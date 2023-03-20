@@ -1,8 +1,9 @@
+import { DashboardCategoryComponent } from './components/dashboard-category/dashboard-category.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SigInComponent } from './components/sig-in/sig-in.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardProductComponent } from './components/dashboard-product/dashboard-product.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { VigilanteGuard } from './vigilante.guard';
 
@@ -20,7 +21,10 @@ const routes: Routes = [
     path:'signIn',component:SigInComponent
   },
   {
-    path:'dashboard',component:DashboardComponent
+    path:'dashboard-product',component:DashboardProductComponent
+  },
+  {
+    path:'dashboard-category',component:DashboardCategoryComponent
   },
   {
     path:'**',redirectTo:'login',pathMatch:'full'

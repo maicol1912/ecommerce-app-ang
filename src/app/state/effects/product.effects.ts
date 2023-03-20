@@ -47,7 +47,7 @@ export class ProductEffects {
                         return of(productError(error))
                     }),
                     tap(() => {
-                        this.messageService.specifiedSuccess('Productos cargados exitosamente', "Exitoso")
+                        this.messageService.specifiedSuccess('product loaded successfully', "Success")
                         this.router.navigate(['/dashboard'])
                     })
                 ))
@@ -65,7 +65,7 @@ export class ProductEffects {
                         return of(productError(error))
                     }),
                     tap(() => {
-                        this.messageService.specifiedSuccess('Producto Eliminado exitosamente', "Exitoso")
+                        this.messageService.specifiedSuccess('Product remoced successfully', "Success")
                     })
                 ))
         ))
